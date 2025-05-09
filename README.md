@@ -36,11 +36,6 @@
       padding: 10px 20px;
       margin: 10px;
     }
-    #resultado {
-      margin-top: 20px;
-      font-size: 36px;
-      color: #333;
-    }
   </style>
 </head>
 <body>
@@ -53,10 +48,9 @@
   <button id="boton" onclick="ganarDinero()">Ganar dinero</button>
   <button onclick="comprarMejora()" id="mejoraBtn">Comprar mejora</button>
   <button onclick="comprarAutoClicker()" id="autoClickerBtn">Comprar autoclicker</button>
-  <button onclick="cambiarIdioma()">Cambiar idioma</button>
-  
+  <button onclick="cambiarIdioma()" id="idiomaBtn">English</button>
+
   <script>
-    // Variables
     let dinero = parseInt(localStorage.getItem("dinero")) || 0;
     let multiplicador = parseInt(localStorage.getItem("multiplicador")) || 1;
     let precioMejora = parseInt(localStorage.getItem("precioMejora")) || 50;
@@ -64,40 +58,36 @@
     let autoClickerActivo = parseInt(localStorage.getItem("autoClickerActivo")) || 0;
     let idioma = localStorage.getItem("idioma") || "es";
 
-    // Textos en ambos idiomas
     const textos = {
       es: {
         titulo: "Simple Tycoon",
         ganar: "Ganar dinero",
         mejora: "Comprar mejora ($",
         autoclicker: "Comprar autoclicker ($",
-        resultado: "Haz clic para empezar",
-        idioma: "Idioma: Español",
-        cambiar: "Cambiar idioma"
+        idioma: "Idioma: Español"
       },
       en: {
         titulo: "Simple Tycoon",
         ganar: "Earn Money",
         mejora: "Buy upgrade ($",
         autoclicker: "Buy autoclicker ($",
-        resultado: "Click to start",
-        idioma: "Language: English",
-        cambiar: "Change Language"
+        idioma: "Language: English"
       }
     };
 
     function actualizarInterfaz() {
-      document.getElementById("dinero").textContent = (idioma === "es" ? "Tu dinero: $" : "Your money: $") + dinero;
-      document.getElementById("precio").textContent = precioMejora;
-      document.getElementById("precioAutoClicker").textContent = precioAutoClicker;
+      document.getElementById("dinero").textContent =
+        (idioma === "es" ? "Tu dinero: $" : "Your money: $") + dinero;
+
       document.getElementById("idioma").textContent = textos[idioma].idioma;
 
-      // Actualizar textos
       document.getElementById("titulo").textContent = textos[idioma].titulo;
       document.getElementById("boton").textContent = textos[idioma].ganar;
-      document.getElementById("mejoraBtn").innerHTML = `${textos[idioma].mejora}<span id="precio">${precioMejora}</span>)`;
-      document.getElementById("autoClickerBtn").innerHTML = `${textos[idioma].autoclicker}<span id="precioAutoClicker">${precioAutoClicker}</span>)`;
-      document.querySelector("button:last-of-type").textContent = textos[idioma].cambiar;
+      document.getElementById("mejoraBtn").innerHTML =
+        `${textos[idioma].mejora}<span id="precio">${precioMejora}</span>)`;
+      document.getElementById("autoClickerBtn").innerHTML =
+        `${textos[idioma].autoclicker}<span id="precioAutoClicker">${precioAutoClicker}</span>)`;
+      document.getElementById("idiomaBtn").textContent = idioma === "es" ? "English" : "Español";
     }
 
     function guardarProgreso() {
@@ -157,7 +147,7 @@
     }
 
     function cambiarIdioma() {
-      idioma = idioma === "es" ? "en" : "es";
+      idioma = (idioma === "es") ? "en" : "es";
       actualizarInterfaz();
       guardarProgreso();
     }
@@ -165,8 +155,8 @@
     // Inicializar
     actualizarInterfaz();
     activarAutoClickerAlCargar();
-    document.getElementById("resultado").textContent = textos[idioma].resultado;
   </script>
 
 </body>
 </html>
+
