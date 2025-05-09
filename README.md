@@ -74,7 +74,7 @@
         mejora: "Comprar mejora",
         auto: "Comprar autoclicker",
         dinero: "Tu dinero",
-        inicio: "Haz clic para empezar",
+        inicio: " ",
         idioma: "🌐 Idioma: Español"
       },
       en: {
@@ -83,7 +83,7 @@
         mejora: "Buy Upgrade",
         auto: "Buy Autoclicker",
         dinero: "Your money",
-        inicio: "Click to start",
+        inicio: " ",
         idioma: "🌐 Language: English"
       }
     };
