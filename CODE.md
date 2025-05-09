@@ -55,8 +55,6 @@
   <button onclick="comprarMejora()" id="mejoraBtn">Comprar mejora ($<span id="precio">50</span>)</button><br>
   <button onclick="comprarAutoClicker()" id="autoBtn">Comprar autoclicker ($<span id="precioAutoClicker">100</span>)</button>
 
-  <div id="resultado">Haz clic para empezar</div>
-
   <script>
     // Estado del juego
     let dinero = parseInt(localStorage.getItem("dinero")) || 0;
